@@ -16,7 +16,7 @@ A Spotify website recreation built with React. Focused on modern UI, responsive 
 
 ## Installation
 
-git clone <repository-url>
-cd spotify-website-clone-react
-npm install
-npm run dev
+- git clone <repository-url>
+- cd spotify-website-clone-react
+- npm install
+- npm run dev
