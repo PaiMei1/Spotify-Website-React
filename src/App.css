@@ -1,0 +1,403 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+.app {
+  background: #121212;
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow: hidden;
+}
+
+.app-layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+
+.sidebar {
+  width: 220px;
+  background: #000;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+.sidebar-logo {
+  color: #1db954;
+  font-size: 22px;
+  font-weight: 700;
+  padding: 0 0.5rem;
+}
+
+.sidebar-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #b3b3b3;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0 0.5rem;
+  margin-bottom: 6px;
+}
+
+.sidebar-link {
+  display: block;
+  padding: 6px 8px;
+  font-size: 14px;
+  color: #b3b3b3;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.sidebar-link:hover {
+  color: #fff;
+}
+
+.sidebar-link-active {
+  color: #fff;
+}
+
+.sidebar-playlist {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 6px 8px;
+  background: none;
+  border: none;
+  color: #b3b3b3;
+  font-size: 13px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.15s;
+}
+
+.sidebar-playlist:hover {
+  color: #fff;
+}
+
+.sidebar-playlist-active {
+  color: #fff;
+  background: #282828;
+}
+
+.sidebar-playlist-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 2px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.song-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 2px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.main {
+  flex: 1;
+  overflow-y: auto;
+  background: #121212;
+}
+
+
+.main-header {
+  position: relative;
+  padding: 2rem;
+  min-height: 200px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.main-header-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.main-header-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5rem;
+}
+
+.playlist-cover {
+  width: 140px;
+  height: 140px;
+  border-radius: 4px;
+  object-fit: cover;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+}
+
+.playlist-type {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.playlist-name {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.playlist-meta {
+  font-size: 13px;
+  color: #b3b3b3;
+}
+
+
+.main-body {
+  padding: 1.5rem 2rem 2rem;
+}
+
+.song-list-header {
+  display: grid;
+  grid-template-columns: 40px 1fr 60px;
+  padding: 0 1rem;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #b3b3b3;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.song-list-col-right {
+  text-align: right;
+}
+
+.song-list-divider {
+  height: 1px;
+  background: #282828;
+  margin-bottom: 8px;
+}
+
+
+.song-row {
+  display: grid;
+  grid-template-columns: 32px 1fr 52px;
+  align-items: center;
+  padding: 7px 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background .15s;
+}
+
+.song-row:hover {
+  background: #282828;
+}
+
+.song-row-active {
+  background: #282828;
+}
+
+.song-index {
+  font-size: 14px;
+  color: #b3b3b3;
+}
+
+.song-row-active .song-index {
+  color: #1db954;
+}
+
+.song-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.song-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.song-row-active .song-title {
+  color: #1db954;
+}
+
+.song-artist {
+  font-size: 13px;
+  color: #b3b3b3;
+}
+
+.song-duration {
+  font-size: 13px;
+  color: #b3b3b3;
+  text-align: right;
+}
+
+
+.now-playing {
+  height: 80px;
+  background: #181818;
+  border-top: 1px solid #282828;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  padding: 0 1.5rem;
+  flex-shrink: 0;
+}
+
+.now-playing-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.now-playing-cover {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.now-playing-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px;
+}
+
+.now-playing-artist {
+  font-size: 12px;
+  color: #b3b3b3;
+  margin-top: 2px;
+}
+
+.now-playing-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ctrl-btn {
+  background: none;
+  border: none;
+  color: #b3b3b3;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.ctrl-btn:hover {
+  color: #fff;
+}
+
+.ctrl-btn-play {
+  background: #fff;
+  color: #000;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+.ctrl-btn-play:hover {
+  background: #e5e5e5;
+  color: #000;
+}
+
+.progress-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 560px;
+}
+
+.progress-time-left,
+.progress-time-right {
+  font-size: 11px;
+  color: #aaa;
+  min-width: 38px;
+  text-align: center;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 4px;
+  background: #535353;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 35%;
+  height: 100%;
+  background: #fff;
+  border-radius: 2px;
+}
+
+.now-playing-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.volume-icon {
+  font-size: 16px;
+}
+
+.volume-bar {
+  width: 80px;
+  height: 4px;
+  background: #535353;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.volume-fill {
+  width: 70%;
+  height: 100%;
+  background: #fff;
+  border-radius: 2px;
+}
